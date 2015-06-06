@@ -31,8 +31,16 @@ class eZSyliusExtension extends Extension implements PrependExtensionInterface
             new FileLocator( __DIR__ . '/../Resources/config' )
         );
 
+        $yamlLoader = new YamlFileLoader(
+            $container,
+            new FileLocator( __DIR__ . '/../Resources/config' )
+        );
+
         // Base services override
         $loader->load( 'services.xml' );
+
+        // forms
+        $yamlLoader->load( 'forms.yml' );
     }
 
     /**
@@ -43,5 +51,9 @@ class eZSyliusExtension extends Extension implements PrependExtensionInterface
      */
     public function prepend( ContainerBuilder $container )
     {
+        $configFile = __DIR__ . '/../Resources/config/template_overrides.yml';
+        $config = Yaml::parse( file_get_contents( $configFile ) );
+        $container->prependExtensionConfig( 'ezpublish', $config );
+        $container->addResource( new FileResource( $configFile ) );
     }
 }

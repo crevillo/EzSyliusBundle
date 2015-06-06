@@ -14,4 +14,9 @@ use EzSystems\DemoBundle\EzSystemsDemoBundle;
 class CrevilloEzSyliusBundle extends EzSystemsDemoBundle
 {
     protected $name = 'eZSyliusBundle';
+
+    public function getParent()
+    {
+        return "eZDemoBundle";
+    }
 }

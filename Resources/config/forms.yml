@@ -1,0 +1,8 @@
+parameters:
+    ezsylius.form.type.add_to_cart.class: Crevillo\EzSyliusBundle\Form\Type\AddToCartType
+
+services:
+    ezsylius.form.type.add_to_cart:
+        class: %ezsylius.form.type.add_to_cart.class%
+        tags:
+            - { name: form.type, alias: ezsylius_add_to_cart }
