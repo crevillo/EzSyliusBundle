@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ezsylius.cart_item_resolver" class="Crevillo\EzSyliusBundle\Cart\ItemResolver">
+        <service id="ezsylius.cart_item_resolver" class="Crevillo\EzSyliusBundle\Cart\Resolver\ItemResolver">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
         </service>
     </services>

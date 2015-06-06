@@ -5,7 +5,7 @@
  * @copyright: crevillo@gmail.com
  */
 
-namespace Crevillo\EzSyliusBundle\Cart;
+namespace Crevillo\EzSyliusBundle\Cart\Resolver;
 
 use Sylius\Component\Cart\Model\CartItemInterface;
 use Sylius\Component\Cart\Resolver\ItemResolverInterface;
