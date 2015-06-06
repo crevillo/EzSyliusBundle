@@ -1,0 +1,9 @@
+{% extends "EzPublishCoreBundle::content_fields.html.twig" %}
+
+{% block ezprice_field %}
+{% spaceless %}
+    {% if not ez_is_field_empty( content, field ) %}
+        {{ (field.value.price * 100)|sylius_money }}
+    {% endif %}
+{% endspaceless %}
+{% endblock %}

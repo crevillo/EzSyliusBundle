@@ -1,0 +1,4 @@
+system:
+    default:
+        field_templates:
+            - {template: eZSyliusBundle:fields:ezprice.html.twig, priority: 20}

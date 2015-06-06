@@ -55,5 +55,10 @@ class eZSyliusExtension extends Extension implements PrependExtensionInterface
         $config = Yaml::parse( file_get_contents( $configFile ) );
         $container->prependExtensionConfig( 'ezpublish', $config );
         $container->addResource( new FileResource( $configFile ) );
+
+        $fieldTemplatesConfigFile = __DIR__ . '/../Resources/config/ez_field_templates.yml';
+        $fieldTemplatesConfig = Yaml::parse( file_get_contents( $fieldTemplatesConfigFile ) );
+        $container->prependExtensionConfig( 'ezpublish', $fieldTemplatesConfig );
+        $container->addResource( new FileResource( $fieldTemplatesConfigFile ) );
     }
 }
