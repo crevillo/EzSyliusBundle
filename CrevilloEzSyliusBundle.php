@@ -1,9 +1,10 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: carlos
- * Date: 5/06/15
- * Time: 23:01
+ * File containing the CrevilloEzSyliusBundle class.
+ *
+ * @copyright Copyright (C) crevillo@gmail.com. All rights reserved.
+ * @license For full copyright and license information view LICENSE file distributed with this source code.
+ * @version //autogentag//
  */
 
 namespace Crevillo\EzSyliusBundle;
