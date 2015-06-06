@@ -10,8 +10,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-      "doctrine/orm": "2.5.0",
-      "ezsystems/demobundle": "~6.0.0@alpha",
+      "doctrine/orm": "2.4.7",
       "sylius/cart-bundle": "^0.14.0"
   },
   "autoload": {
