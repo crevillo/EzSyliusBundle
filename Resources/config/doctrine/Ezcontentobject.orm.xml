@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Crevillo\EzSyliusBundle\Entity\Ezcontentobject" table="ezcontentobject">
+    <indexes>
+      <index name="ezcontentobject_classid" columns="contentclass_id"/>
+      <index name="ezcontentobject_currentversion" columns="current_version"/>
+      <index name="ezcontentobject_lmask" columns="language_mask"/>
+      <index name="ezcontentobject_owner" columns="owner_id"/>
+      <index name="ezcontentobject_pub" columns="published"/>
+      <index name="ezcontentobject_status" columns="status"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="ezcontentobject_remote_id" columns="remote_id"/>
+    </unique-constraints>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="contentclassId" type="integer" column="contentclass_id" nullable="false"/>
+    <field name="currentVersion" type="integer" column="current_version" nullable="true"/>
+    <field name="initialLanguageId" type="bigint" column="initial_language_id" nullable="false"/>
+    <field name="languageMask" type="bigint" column="language_mask" nullable="false"/>
+    <field name="modified" type="integer" column="modified" nullable="false"/>
+    <field name="name" type="string" column="name" length="255" nullable="true"/>
+    <field name="ownerId" type="integer" column="owner_id" nullable="false"/>
+    <field name="published" type="integer" column="published" nullable="false"/>
+    <field name="remoteId" type="string" column="remote_id" length="100" nullable="true"/>
+    <field name="sectionId" type="integer" column="section_id" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+  </entity>
+</doctrine-mapping>
