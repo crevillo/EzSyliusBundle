@@ -98,6 +98,9 @@ class Ezcontentobject
      */
     private $id;
 
-
+    public function getId()
+    {
+        return $this->id;
+    }
 }
 

@@ -16,20 +16,21 @@
                 <h3>{{ ez_content_name( content ) }}</h3>
             </a>
         </div>
-        {{ form_start(form) }}
-        <fieldset>
-            <div class="item-price">
-                {{ ez_render_field(content, 'price') }}
-            </div>
-            <div class="item-buying-action form-inline">
-                <label>
-                    <span class="hidden">{{ 'Amount'|trans }}</span>
-                    {{ form_widget(form.quantity) }}
-                </label>
-                {{ form_row(form.buy, {'attr': {'class':'btn btn-warning'}} ) }}
-            </div>
-        </fieldset>
-        {{ form_end(form) }}
+        {% set form = sylius_cart_form() %}
+        <form action="{{ path('sylius_cart_item_add', {'productId': content.id}) }}" method="post">
+            <fieldset>
+                <div class="item-price">
+                    {{ ez_render_field(content, 'price') }}
+                </div>
+                <div class="item-buying-action form-inline">
+                    <label>
+                        <span class="hidden">{{ 'Amount'|trans }}</span>
+                        {{ form_widget(form.quantity) }}
+                    </label>
+                    <input type="submit" value="{{ 'Buy'|trans }}" class="btn btn-warning">
+                </div>
+            </fieldset>
+        </form>
     </div>
 </article>
 

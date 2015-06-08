@@ -7,17 +7,30 @@
 
 namespace Crevillo\EzSyliusBundle\Cart\Resolver;
 
+use eZ\Publish\API\Repository\ContentService;
 use Sylius\Component\Cart\Model\CartItemInterface;
 use Sylius\Component\Cart\Resolver\ItemResolverInterface;
 use Doctrine\ORM\EntityManager;
 
 class ItemResolver implements ItemResolverInterface
 {
+    /**
+     * @var EntityManager
+     */
     private $entityManager;
 
-    public function __construct( EntityManager $entityManager )
+    /**
+     * @var ContentService
+     */
+    private $contentService;
+
+    public function __construct(
+        EntityManager $entityManager,
+        ContentService $contentService
+    )
     {
         $this->entityManager = $entityManager;
+        $this->contentService = $contentService;
     }
 
     public function resolve( CartItemInterface $item, $request )
@@ -29,9 +42,12 @@ class ItemResolver implements ItemResolverInterface
             throw new ItemResolvingException('Requested product was not found');
         }
 
+        $content = $this->contentService->loadContent( $product->getId() );
+
         // Assign the product to the item and define the unit price.
-        $item->setVariant($product);
-        $item->setUnitPrice($product->getPrice());
+       // $item->setVariant($content);
+
+        $item->setUnitPrice((int)$content->getFieldValue('price')->price * 100 );
 
         // Everything went fine, return the item.
         return $item;
@@ -39,6 +55,6 @@ class ItemResolver implements ItemResolverInterface
 
     private function getProductRepository()
     {
-        return $this->entityManager->getRepository('CrevilloEzSyliusBundle:Ezcontentobject');
+        return $this->entityManager->getRepository('eZSyliusBundle:Ezcontentobject');
     }
 }

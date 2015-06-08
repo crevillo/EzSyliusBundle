@@ -12,7 +12,8 @@
   "require": {
       "doctrine/orm": "2.4.*",
       "lexik/currency-bundle": "1.2.*",
-      "sylius/cart-bundle": "^0.14.0"
+      "sylius/cart-bundle": "^0.14.0",
+      "friendsofsymfony/rest-bundle":         "~1.5",
   },
   "autoload": {
       "psr-0": {"Crevillo\\EzSyliusBundle": ""}

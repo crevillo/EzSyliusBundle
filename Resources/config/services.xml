@@ -7,6 +7,7 @@
     <services>
         <service id="ezsylius.cart_item_resolver" class="Crevillo\EzSyliusBundle\Cart\Resolver\ItemResolver">
             <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument type="service" id="ezpublish.api.service.content" />
         </service>
     </services>
 </container>

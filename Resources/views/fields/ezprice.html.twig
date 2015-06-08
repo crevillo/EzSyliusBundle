@@ -3,7 +3,7 @@
 {% block ezprice_field %}
 {% spaceless %}
     {% if not ez_is_field_empty( content, field ) %}
-        {{ (field.value.price * 100)|sylius_money }}
+        {{ field.value.price|currency_convert_format('EUR') }}
     {% endif %}
 {% endspaceless %}
 {% endblock %}
