@@ -3,7 +3,6 @@ system:
         location_view:
             block_item:
                 product:
-                    controller: "eZSyliusBundle:Cart:blockItemView"
                     template: "eZDemoBundle:block_item:product.html.twig"
                     match:
                         Identifier\ContentType: "product"
