@@ -1,8 +1,8 @@
-{% set product = item.variant.product %}
+
 <tr>
     <td class="col-md-1">{{ loop.index }}</td>
     <td>
-        {{ include('SyliusWebBundle:Frontend/Product:_variant.html.twig', {'variant': item.variant}) }}
+       {{ ez_content_name( item.content ) }}
     </td>
     <td class="col-md-2">
         {{ form_row(form.items[loop.index0].quantity, {'label': false}) }}

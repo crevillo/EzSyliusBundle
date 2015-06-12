@@ -45,8 +45,10 @@ class ItemResolver implements ItemResolverInterface
         $content = $this->contentService->loadContent( $product->getId() );
 
         // Assign the product to the item and define the unit price.
-       // $item->setVariant($content);
 
+
+        $item->setProduct($product);
+        $item->setContent($content);
         $item->setUnitPrice((int)$content->getFieldValue('price')->price * 100 );
 
         // Everything went fine, return the item.

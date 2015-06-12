@@ -8,6 +8,7 @@
  */
 namespace Crevillo\EzSyliusBundle\Entity;
 
+use eZ\Publish\API\Repository\Values\Content\Content;
 use Sylius\Component\Cart\Model\CartItem as BaseCartItem;
 
 class CartItem extends BaseCartItem
