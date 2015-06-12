@@ -20,10 +20,6 @@ class CartController extends SyliusCartController
     public function summaryAction()
     {
         $cart = $this->getCurrentCart();
-        foreach( $cart->getItems() as $item )
-        {
-            $item->setContent( $this->get('ezpublish.api.service.content')->loadContent( $item->getProduct()->getId() ));
-        }
 
         $form = $this->createForm('sylius_cart', $cart);
 

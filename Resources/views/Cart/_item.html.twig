@@ -2,7 +2,7 @@
 <tr>
     <td class="col-md-1">{{ loop.index }}</td>
     <td>
-       {{ ez_content_name( item.content ) }}
+       {{ ez_content_name( item.variant ) }}
     </td>
     <td class="col-md-2">
         {{ form_row(form.items[loop.index0].quantity, {'label': false}) }}

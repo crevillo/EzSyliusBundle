@@ -48,7 +48,7 @@ class ItemResolver implements ItemResolverInterface
 
 
         $item->setProduct($product);
-        $item->setContent($content);
+        $item->setVariant($content);
         $item->setUnitPrice((int)$content->getFieldValue('price')->price * 100 );
 
         // Everything went fine, return the item.

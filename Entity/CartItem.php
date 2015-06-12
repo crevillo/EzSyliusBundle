@@ -15,6 +15,8 @@ class CartItem extends BaseCartItem
 {
     private $product;
 
+    private $variant;
+
     public function getProduct()
     {
         return $this->product;
@@ -23,5 +25,21 @@ class CartItem extends BaseCartItem
     public function setProduct( Ezcontentobject $product )
     {
         $this->product = $product;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getVariant()
+    {
+        return $this->variant;
+    }
+    /**
+     * {@inheritdoc}
+     */
+    public function setVariant( Content $variant)
+    {
+        $this->variant = $variant;
+        return $this;
     }
 }

@@ -11,7 +11,10 @@
   "minimum-stability": "dev",
   "require": {
       "doctrine/orm": "2.4.*",
-      "sylius/sylius": "v0.14.0"
+      "sylius/cart-bundle": "^0.14.0",
+      "sylius/pricing-bundle": "^0.14.0",
+      "sylius/currency-bundle": "^0.14.0",
+      "sylius/product-bundle": "^0.14.0"
   },
   "autoload": {
       "psr-0": {"Crevillo\\EzSyliusBundle": ""}
