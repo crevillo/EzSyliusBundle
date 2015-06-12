@@ -11,7 +11,7 @@
   "minimum-stability": "dev",
   "require": {
       "doctrine/orm": "2.4.*",
-      "sylius/sylius": "^0.14.0"
+      "sylius/sylius": "dev-master"
   },
   "autoload": {
       "psr-0": {"Crevillo\\EzSyliusBundle": ""}
