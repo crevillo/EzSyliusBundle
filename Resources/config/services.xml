@@ -9,5 +9,9 @@
             <argument type="service" id="doctrine.orm.default_entity_manager" />
             <argument type="service" id="ezpublish.api.service.content" />
         </service>
+        <service id="ezsylius.doctrine_load.listener" class="Crevillo\EzSyliusBundle\EventListener\ContentLoadListener">
+            <argument type="service" id="ezpublish.api.service.content" />
+            <tag name="doctrine.event_listener" event="postLoad" />
+        </service>
     </services>
 </container>
