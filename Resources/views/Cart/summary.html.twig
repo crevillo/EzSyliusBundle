@@ -74,9 +74,6 @@ Taken from SyliusCartBundle
                         {% for item in cart.items %}
                             {% include 'eZSyliusBundle:Cart:_item.html.twig' %}
                         {% endfor %}
-                        <tr class="bglight">
-                            <td colspan="7"><input class="button" type="submit" value="{{ "Update"|trans }}" /></td>
-                        </tr>
                     </tbody>
                     <tfoot>
                     <tr>
@@ -152,15 +149,16 @@ Taken from SyliusCartBundle
                 #}
 
                 {{ form_rest(form) }}
-                {#
+
                 <div class="well">
                     <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save"></i> {{ 'sylius.cart.summary.save'|trans }}</button>
                     <div class="pull-right">
+                        <input class="button" type="submit" value="{{ "Update"|trans }}" />
                         <a href="{{ path('sylius_checkout_start') }}" class="btn btn-success btn-lg"><i class="icon-shopping-cart"></i> {{ 'sylius.cart.summary.checkout'|trans }}</a>
                         <a href="{{ path('sylius_cart_clear') }}" class="btn btn-danger btn-lg"><i class="icon-remove"></i> {{ 'sylius.cart.summary.clear'|trans }}</a>
                     </div>
                 </div>
-                #}
+
             </form>
         {% else %}
             <div class="feedback">
