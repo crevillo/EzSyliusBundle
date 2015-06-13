@@ -71,10 +71,12 @@ Taken from SyliusCartBundle
                     </tr>
                     </thead>
                     <tbody>
-                    {% for item in cart.items %}
-                        {% include 'eZSyliusBundle:Cart:_item.html.twig' %}
-                    {% endfor %}
-
+                        {% for item in cart.items %}
+                            {% include 'eZSyliusBundle:Cart:_item.html.twig' %}
+                        {% endfor %}
+                        <tr class="bglight">
+                            <td colspan="7"><input class="button" type="submit" value="{{ "Update"|trans }}" /></td>
+                        </tr>
                     </tbody>
                     <tfoot>
                     <tr>

@@ -13,6 +13,3 @@
     <td>{{ item.total|sylius_price }}</td>
     <td><a href="{{ path('sylius_cart_item_remove', {'id': item.id}) }}" class="btn btn-danger"><i class="icon-trash icon-white"></i></a></td>
 </tr>
-<tr class="bglight">
-    <td colspan="6"><input class="button" type="submit" name="StoreChangesButton" value="{{ "Update"|trans }}" /></td>
-</tr>
