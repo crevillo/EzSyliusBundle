@@ -25,18 +25,29 @@ Taken from SyliusCartBundle
     {% endblock %}
 
     {% block content %}
-        <div class="page-header">
-            <h1>{{ 'sylius.cart.summary_header'|trans|raw }}</h1>
+        <div class="shop-basket">
+
+            <ul>
+                <li class="selected">1. {{ "Shopping Basket"|trans }}</li>
+                <li>2. {{ "Account Information"|trans }}</li>
+                <li>3. {{ "Confirm Order"|trans }}</li>
+            </ul>
+
         </div>
+
+        <div class="shop-basket">
+            <div class="attribute-header">
+                <h1 class="long">{{ "Basket"|trans }}</h1>
+            </div>
 
         {% if not cart.empty %}
             {{ form_errors(form) }}
 
             <form action="{{ path('sylius_cart_save') }}" method="post" novalidate>
-                <table class="table">
+                <table class="list" width="100%" cellspacing="0" cellpadding="0" border="0">
                     <thead>
                     <tr>
-                        <th>#</th>
+                        <th>{{ "Count"|trans }}</th>
                         <th>{{ 'sylius.cart.summary.product'|trans }}</th>
                         <th>{{ 'sylius.cart.summary.quantity'|trans }}</th>
                         <th></th>
@@ -115,7 +126,7 @@ Taken from SyliusCartBundle
         {% else %}
             {{ "There is no products in your cart"|trans }}
         {% endif %}
-
+        </div>
     {% endblock %}
 
     {% block sylius_cart_item_row %}
