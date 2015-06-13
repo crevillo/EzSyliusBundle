@@ -25,7 +25,7 @@ class CartController extends SyliusCartController
 
         $view = $this
             ->view()
-            ->setTemplate('eZSyliusBundle:cart:summary.html.twig')
+            ->setTemplate('eZSyliusBundle:Cart:summary.html.twig')
             ->setData(array(
                 'cart' => $cart,
                 'form' => $form->createView()

@@ -10,6 +10,8 @@ namespace Crevillo\EzSyliusBundle\Entity;
 
 use eZ\Publish\API\Repository\Values\Content\Content;
 use Sylius\Component\Cart\Model\CartItem as BaseCartItem;
+use Sylius\Component\Order\Model\OrderItemInterface;
+
 
 class CartItem extends BaseCartItem
 {
@@ -34,12 +36,19 @@ class CartItem extends BaseCartItem
     {
         return $this->variant;
     }
+
     /**
      * {@inheritdoc}
      */
     public function setVariant( Content $variant)
     {
         $this->variant = $variant;
+
         return $this;
+    }
+
+    public function equals(OrderItemInterface $item)
+    {
+        return $this->product === $item->getProduct();
     }
 }

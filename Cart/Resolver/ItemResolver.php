@@ -46,6 +46,8 @@ class ItemResolver implements ItemResolverInterface
 
         // Assign the product to the item and define the unit price.
         $item->setProduct($product);
+
+        $item->setQuantity($item->getQuantity() + $request->request->get( 'sylius_cart_item')['quantity'] - 1 );
         $item->setUnitPrice((int)$content->getFieldValue('price')->price * 100 );
 
         // Everything went fine, return the item.
