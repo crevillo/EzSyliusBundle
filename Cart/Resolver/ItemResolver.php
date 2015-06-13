@@ -19,11 +19,18 @@ class ItemResolver implements ItemResolverInterface
      */
     private $entityManager;
 
+    /**
+     * @var ContentService
+     */
+    private $contentService;
+
     public function __construct(
-        EntityManager $entityManager
+        EntityManager $entityManager,
+        ContentService $contentService
     )
     {
         $this->entityManager = $entityManager;
+        $this->contentService = $contentService;
     }
 
     public function resolve( CartItemInterface $item, $request )
@@ -34,6 +41,8 @@ class ItemResolver implements ItemResolverInterface
         if (!$productId || !$product = $this->getProductRepository()->find($productId)) {
             throw new ItemResolvingException('Requested product was not found');
         }
+
+        $content = $this->contentService->loadContent( $product->getId() );
 
         // Assign the product to the item and define the unit price.
         $item->setProduct($product);
