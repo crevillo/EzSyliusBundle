@@ -3,6 +3,11 @@ system:
         location_view:
             block_item:
                 product:
-                    template: "eZDemoBundle:block_item:product.html.twig"
+                    template: "eZSyliusBundle:block_item:product.html.twig"
+                    match:
+                        Identifier\ContentType: "product"
+            full:
+                product:
+                    template: "eZSyliusBundle:product:product.html.twig"
                     match:
                         Identifier\ContentType: "product"

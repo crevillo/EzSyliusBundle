@@ -1,0 +1,70 @@
+{% extends "eZDemoBundle::pagelayout.html.twig" %}
+
+{% block content %}
+<section class="content-view-full">
+    <article class="class-product row">
+        <div class="span8">
+                {% if not ez_is_field_empty( content, "image" ) %}
+                <div class="attribute-image full-head">
+                    {{ ez_render_field( content, "image", {"parameters": {"alias": "productimage"}} ) }}
+
+                    {% if not ez_is_field_empty( content, "caption" ) %}
+                    <div class="attribute-caption">
+                        {{ ez_render_field( content, "caption" ) }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <div class="attribute-short">
+                    {{ ez_render_field( content, "short_description" ) }}
+                </div>
+
+                <div class="attribute-long">
+                    {{ ez_render_field( content, "description" ) }}
+                </div>
+        </div>
+        <div class="span4">
+            <aside>
+                <section class="content-view-aside">
+                    <div class="product-main">
+                        <div class="attribute-header">
+                            <h2>{{ ez_content_name(content) }}</h2>
+                            <span class="subheadline">{{ ez_render_field( content,'product_number' ) }}</span>
+                        </div>
+                        <article>
+                            {% set form = sylius_cart_form() %}
+                            <form action="{{ path('sylius_cart_item_add', {'productId': content.id}) }}" method="post">
+                                <fieldset class="row">
+                                    <div class="item-price span4">
+                                        {{ ez_render_field(content, 'price') }}
+                                    </div>
+                                    {#
+                                    <div class="span4">
+                                        {attribute_view_gui attribute=$node.data_map.additional_options}
+                                    </div>
+                                    #}
+                                    <div class="item-buying-action form-inline span4">
+                                        <label>
+                                            <span class="hidden">{{ "Amount"|trans }}</span>
+                                            {{ form_widget(form.quantity) }}
+                                        </label>
+                                        <button class="btn btn-warning" type="submit" name="ActionAddToBasket">
+                                            {{ "Add to basket"|trans }}
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </article>
+                        {#
+                        <div class="attribute-socialize">
+                            {include uri='design:parts/social_buttons.tpl'}
+                        </div>
+                        #}
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </article>
+</section>
+{% endblock %}
